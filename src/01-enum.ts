@@ -1,17 +1,15 @@
-(() => {
-  enum ROLES {
-    ADMIN = 'admin',
-    SELLER = 'seller',
-    CUSTOMER = 'customer'
-  }
+export enum ROLES {
+  ADMIN = 'admin',
+  SELLER = 'seller',
+  CUSTOMER = 'customer'
+}
 
-  type User = {
-    username: string,
-    role: ROLES
-  }
+export type User = {
+  username: string,
+  role: ROLES
+}
 
-  const alexUser: User = {
-    username: 'Alexander',
-    role: ROLES.ADMIN
-  }
-})()
+const alexUser: User = {
+  username: 'Alexander',
+  role: ROLES.ADMIN
+}
