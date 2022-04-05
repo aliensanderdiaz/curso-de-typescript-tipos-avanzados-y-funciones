@@ -1,5 +1,9 @@
 # Curso de TypeScript: Tipos Avanzados y Funciones
 
+> npm i ts-node
+
+> npx ts-node src/demo.ts
+
 ## ENUM
 
 	enum ROLES {
@@ -87,3 +91,15 @@ para solucionar esto llega `??`
 con el cual estamos seguros que solo se evalua 
 
 `undefined` o `null`
+
+## Parámetros por defecto
+
+Cuando queremos tener parametros por defecto
+
+asignamos el valor de una vez en la variable
+
+> isNew: boolean = true
+
+de esta manera cuando no se envie un valor
+
+tendremos `true`
