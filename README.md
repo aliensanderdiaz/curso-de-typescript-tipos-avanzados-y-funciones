@@ -50,3 +50,40 @@ o utilizar algún método.
 	if (typeof unknowVar === 'string') {
 		unknowVar.toUpperCase()
 	}
+
+
+## never
+
+Se usa cuando una función nunca va a parar de ejecutarse.
+
+No confundir con void, que son funciones sin retorno
+
+## Parámetros opcionales y nullish-coalescing
+
+Para aceptar parametros opcionales basta con 
+
+agregar un signo de interrogación 
+
+despues del nombre del parametro
+
+> isNew?
+
+Solo hay que tener en cuenta que los parametros opcionales
+
+van despues de los parametros obligatorios.
+
+### nullish-coalescing
+
+Es comun que utilicemos `||` cuando queremos 
+
+darle un valor por defecto a una variable
+
+Pero tiene sus fallas cuando evalua 
+
+un cero, el string vacío o un false
+
+para solucionar esto llega `??`
+
+con el cual estamos seguros que solo se evalua 
+
+`undefined` o `null`
