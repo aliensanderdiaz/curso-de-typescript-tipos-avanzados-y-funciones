@@ -212,3 +212,39 @@ diferentes interfaces con propiedades en comun.
 deberiamos hacer una interfaz base y extender las nueva interfaces
 
 desde esta base.
+
+## Propiedades de solo lectura
+
+con la palabra reservada readonly podemos evitar que se alteren
+
+ciertas propiedades en nuestras interfaces.
+
+## Ejemplo de CRUD
+
+Ordenamos mejor los modelos con relaciones
+
+category, order, product, user
+
+## Omit y Pick Type
+
+Las interfaces son muy estrictos con sus elementos entonces que hacemos cuando
+
+en nuestro CRUD queremos hacer nuestras distintas operaciones, pero no deberiamos
+
+contar con toda la cantidad de datos que se indican en determinada interface
+
+Aparecen un concepto que aprenderemos que son los DTO "Data transfer Object"
+
+estas nuevas interfaces extienden de nuestros modelos, pero quitando o agregando
+
+propiedades y en este proceso de quitar o agregar propiedades aparecen
+
+`OMIT` y `PICK`, para evitar que caigamos en redundancia de codigo.
+
+	export interface CreateProductDto extends Omit<Product, 'id' | 'createdAt' | 'updatedAt' | 'category'> {
+		categoryId: string
+	}
+
+	export interface exampleDto extends Pick<Product, 'image' | 'description'> {
+		
+	}
