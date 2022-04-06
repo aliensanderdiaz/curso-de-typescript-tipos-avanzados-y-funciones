@@ -248,3 +248,73 @@ propiedades y en este proceso de quitar o agregar propiedades aparecen
 	export interface exampleDto extends Pick<Product, 'image' | 'description'> {
 		
 	}
+
+## Partial y Required Type
+
+PARTIAL: son perfectos para crear un DTO para usarlo en el Update,
+
+debido a que no necesitamos enviar toda la informacion de un producto
+
+solo la parte que deseamos cambiar. De una u otra manera lo que nos hace
+
+es que nuestras propiedades no sean obligatorias.
+
+REQUIRED: Viene a ser el opuesto de partial, nos vuelve todos los 
+
+campos obligatorios no importa de donde lo extendamos.
+
+	export interface UpdateProductDto extends Partial<CreateProductDto> {
+
+	}
+
+	export interface exampleDto2 extends Required<Product> {
+
+	}
+
+
+## Readonly Type
+
+Ideal para busquedas porque son parametros que no podemos editar y 
+
+solo queremos filtrar por dichos parametros.
+
+	export interface FindProductDto extends Readonly<Partial<Product>> {
+
+	}
+
+## Acceder al tipado por indice
+
+Se refiere a que podemos pasar el tipado por indice
+
+En este caso no colocamos que queremos un id de tipo numero, o de tipo string
+
+o combinado, sino que vamos directamente a la interfaz product y traemos el tipo
+
+de dato que es id
+
+	export const updateProduct = (id: Product['id'], changes: UpdateProductDto) => {
+		...
+		...
+		...
+	}
+
+## ReadonlyArray
+
+Cuando no queremos que nuestro array sufra mutaciones, pero si podamos acceder
+
+a sus metodos, (los que no muten nuestro array original)
+
+	const numbers: ReadonlyArray<number> = [1,2,3,4,5,6]
+
+	// numbers.push(7)
+	// numbers.pop()
+
+	numbers.filter(() => {})
+	numbers.reduce(() => 0)
+	numbers.map(() => 0)
+
+tambien se pueden utilizar en nuestros DTO
+
+	export interface FindProductDto extends Readonly<Partial<Omit<Product, 'tags'>>> {
+		readonly tags?: ReadonlyArray<string>
+	}
